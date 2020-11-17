@@ -1,9 +1,15 @@
 import React from "react";
 import makeStyles from "@material-ui/core/styles/makeStyles";
-import {Typography} from "@material-ui/core";
+import {Grid, TableBody, TableContainer, TableHead, Typography} from "@material-ui/core";
 import Paper from "@material-ui/core/Paper";
 import Toolbar from "@material-ui/core/Toolbar";
 import AppBar from "@material-ui/core/AppBar";
+import Table from "@material-ui/core/Table";
+import TableRow from "@material-ui/core/TableRow";
+import TableCell from "@material-ui/core/TableCell";
+import CloseIcon from "@material-ui/icons/Close";
+import IconButton from "@material-ui/core/IconButton";
+import Tooltip from '@material-ui/core/Tooltip';
 
 const useStyles = makeStyles((theme) => ({
         root: {
@@ -28,7 +34,15 @@ const useStyles = makeStyles((theme) => ({
             minHeight: 36,
             width: "100%"
         },
-
+        table: {
+            // width: 650,
+            // marginLeft: '10px'
+        },
+        tableContainer: {
+            marginTop: '20px',
+            width: 650,
+            marginLeft: '20px'
+        }
     }
 ))
 
@@ -37,20 +51,77 @@ const style = {
     background: '#30475e'
 };
 
-const Playlist = (props) => {
-
+const TableFilling = (props) => {
     const classes = useStyles();
 
+    return (
+        <TableContainer className={classes.tableContainer} component={Paper}>
+            <Table className={classes.table} size={"small"}>
+                <TableHead>
+                    <TableRow>
+                        <TableCell>Композиция</TableCell>
+                        <TableCell align="right">Исполнитель</TableCell>
+                        <TableCell align="right">Продолжительность</TableCell>
+                    </TableRow>
+                </TableHead>
+                <TableBody>
+                    {props.songList.map((row) => (
+                        <TableRow key={row.id}>
+                            <TableCell component="th" scope="row">
+                                {row.name}
+                            </TableCell>
+                            <TableCell align="right">{row.artist}</TableCell>
+                            <TableCell align="right">{row.length}</TableCell>
+                            <TableCell align="right">
+                                <Tooltip title={'Remove'}>
+                                    <IconButton size={"small"} aria-label="settings" onClick={''}>
+                                        {/*//todo: here*/}
+                                        <CloseIcon/>
+                                    </IconButton>
+                                </Tooltip>
+                            </TableCell>
+                        </TableRow>
+                    ))}
+                </TableBody>
+            </Table>
+        </TableContainer>
+    )
+}
+
+const Playlist = (props) => {
+    const classes = useStyles();
+
+    const exampleData = [
+        {
+            id: '1',
+            name: 'name1',
+            artist: 'artist1',
+            length: '5:00'
+        },
+        {
+            id: '2',
+            name: 'name2',
+            artist: 'artist2',
+            length: '3:00'
+        },
+        {
+            id: '3',
+            name: 'name3',
+            artist: 'artist3',
+            length: '4:00'
+        },
+    ]
 
     return (
         <div className={classes.root}>
             <AppBar style={style} position="static">
-            <Toolbar className={classes.toolBar} />
+                <Toolbar className={classes.toolBar}/>
             </AppBar>
             <Paper elevation={3} className={classes.paper}>
                 <Typography className={classes.typography} variant="h6" gutterBottom>
                     Плейлист {props.id}
                 </Typography>
+                <TableFilling songList={exampleData}/>
             </Paper>
         </div>
     )

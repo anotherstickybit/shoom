@@ -22,7 +22,7 @@ const useStyles = makeStyles((theme) => ({
         marginTop: '20px',
     },
     card: {
-        marginLeft: '10px',
+        marginLeft: '20px',
         width: '300px',
         height: '350'
     },

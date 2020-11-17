@@ -6,6 +6,7 @@ import reportWebVitals from './reportWebVitals';
 import {Provider} from "react-redux";
 import store from "./components/redux/redux-store";
 import {BrowserRouter} from "react-router-dom";
+import 'typeface-roboto'
 
 ReactDOM.render(
     <React.StrictMode>

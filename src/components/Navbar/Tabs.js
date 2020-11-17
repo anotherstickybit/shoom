@@ -10,6 +10,7 @@ import Paper from "@material-ui/core/Paper";
 import Toolbar from "@material-ui/core/Toolbar";
 import Grid from "@material-ui/core/Grid";
 import Main from "../Main/Main";
+import Genres from "../Genres/Genres";
 
 function TabPanel(props) {
     const {children, value, index, ...other} = props;
@@ -134,7 +135,7 @@ export default function SimpleTabs() {
             </TabPanel>
             <TabPanel value={value} index={2}>
                 <Paper elevation={3} className={classes.paper}>
-
+                    <Genres />
                 </Paper>
             </TabPanel>
         </div>
