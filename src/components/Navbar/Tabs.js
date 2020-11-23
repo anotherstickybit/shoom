@@ -11,6 +11,7 @@ import Toolbar from "@material-ui/core/Toolbar";
 import Grid from "@material-ui/core/Grid";
 import Main from "../Main/Main";
 import Genres from "../Genres/Genres";
+import MainContainer from "../Main/MainContainer";
 
 function TabPanel(props) {
     const {children, value, index, ...other} = props;
@@ -125,7 +126,7 @@ export default function SimpleTabs() {
             </AppBar>
             <TabPanel value={value} index={0}>
                 <Paper elevation={3} className={classes.paper}>
-                    <Main />
+                    <MainContainer />
                 </Paper>
             </TabPanel>
             <TabPanel value={value} index={1}>

@@ -20,7 +20,7 @@ class App extends React.Component {
                 <Container style={style} maxWidth={false}>
                     <HeaderClass/>
                     <Route path={'/home'} render={() => <SimpleTabs />} />
-                    <Route path={'/playlist/:id'} component={PlaylistContainer} />
+                    <Route path={'/playlist/:id'} render={ () => <PlaylistContainer />} />
                     <Route path={'/artist/:id'} component={ArtistContainer} />
                 </Container>
                 {/*<BackToTop/>*/}

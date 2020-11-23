@@ -1,5 +1,5 @@
 import React from "react";
-import {CardHeader, Typography} from "@material-ui/core";
+import {Button, CardHeader, Typography} from "@material-ui/core";
 import makeStyles from "@material-ui/core/styles/makeStyles";
 import Card from "@material-ui/core/Card";
 import red from "@material-ui/core/colors/red";
@@ -11,6 +11,9 @@ import CloseIcon from '@material-ui/icons/Close';
 import Grid from "@material-ui/core/Grid";
 import ButtonBase from "@material-ui/core/ButtonBase";
 import {NavLink} from "react-router-dom";
+import {removePlaylistById} from "../redux/PlaylistsPreviewReducer";
+import AddNewPlaylist from "./AddNewPlaylist";
+import AddPlaylist from "./AddNewPlaylist";
 
 const useStyles = makeStyles((theme) => ({
     typography: {
@@ -19,7 +22,7 @@ const useStyles = makeStyles((theme) => ({
         marginTop: '20px',
     },
     cardsArea: {
-        marginTop: '20px',
+        marginTop: '25px',
     },
     card: {
         marginLeft: '20px',
@@ -31,7 +34,11 @@ const useStyles = makeStyles((theme) => ({
     },
     media: {
         // width: '100px',
-        height: '200px'
+        height: '250px'
+    },
+    addButton: {
+        marginLeft: '20px',
+        marginRight: '100px'
     }
 }))
 
@@ -40,54 +47,55 @@ const CardItem = (props) => {
 
     return (
         <Card className={classes.card}>
-            <CardHeader avatar={
-                <Avatar aria-label="recipe" className={classes.avatar}>
-                    U
-                </Avatar>}
-                        action={
-                            <IconButton aria-label="settings" onClick={''}>
-                                {/*//todo: here*/}
-                                <CloseIcon/>
-                            </IconButton>
-                        }
+            <CardHeader action={
+                <IconButton aria-label="settings" onClick={() => {
+                    props.removeById(props.id)
+                }}>
+                    <CloseIcon/>
+                </IconButton>
+            }
                         title={props.title}
-                        subheader="Дата и время создания"
             />
             <NavLink to={'/playlist/' + props.id} id={props.id}>
-            <CardMedia
-                className={classes.media}
-                image="https://1lady.pro/wp-content/uploads/2014/01/default-placeholder.png"
-                title={props.title}
-            />
+                <CardMedia
+                    className={classes.media}
+                    image={props.img_URL}
+                    title={props.title}
+                />
             </NavLink>
-            <CardContent>
-                <Typography variant="body2" color="textSecondary" component="p">
-                    Группы, входящие в плейлист.
-                </Typography>
-            </CardContent>
-
         </Card>
     )
 }
 
-const Main = () => {
-
+const Main = (props) => {
     const classes = useStyles();
     const elements = ['one', 'two', 'three', 'four'];
 
     return (
         <div>
             <div>
-                <Typography className={classes.typography} variant="h6" gutterBottom>
-                    Плейлисты для Вас %username%
-                </Typography>
+                <Grid
+                    justify="space-between"
+                    container
+                    spacing={24}
+                >
+                    <Grid item xs={2}>
+                        <Typography className={classes.typography} variant="h6" gutterBottom>
+                            Плейлисты для Вас
+                        </Typography>
+                    </Grid>
+                    <Grid item xs={10}>
+                        <AddPlaylist />
+                    </Grid>
+                </Grid>
             </div>
             <div className={classes.cardsArea}>
                 <Grid container spacing={2}>
 
-                    {elements.map((value, index) => {
+                    {props.albumPreviews.map((item) => {
                         return <Grid item>
-                            <CardItem title={value + '' + index} id={index}/>
+                            <CardItem title={item.name} id={item.id} removeById={props.removePlaylistById}
+                                      img_URL={props.img_URL}/>
                         </Grid>
                     })}
                     {/*<CardItem title={'2343'} />*/}

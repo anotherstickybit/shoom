@@ -8,11 +8,11 @@ class PlaylistContainer extends React.Component {
     }
 
     render() {
-        let id = this.props.match.params.id;
         return (
-            <Playlist id={id}/>
+            <Playlist/>
         )
     }
 }
+
 
 export default PlaylistContainer
