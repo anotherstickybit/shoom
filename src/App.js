@@ -21,7 +21,7 @@ class App extends React.Component {
                     <HeaderClass/>
                     <Route path={'/home'} render={() => <SimpleTabs />} />
                     <Route path={'/playlist/:id'} render={ () => <PlaylistContainer />} />
-                    <Route path={'/artist/:id'} component={ArtistContainer} />
+                    <Route path={'/artist/:id'} component={() => <ArtistContainer />} />
                 </Container>
                 {/*<BackToTop/>*/}
             </div>

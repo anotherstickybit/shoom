@@ -10,6 +10,7 @@ import TableCell from "@material-ui/core/TableCell";
 import CloseIcon from "@material-ui/icons/Close";
 import IconButton from "@material-ui/core/IconButton";
 import Tooltip from '@material-ui/core/Tooltip';
+import {removeTrackById} from "../redux/PlaylistsPreviewReducer";
 
 const useStyles = makeStyles((theme) => ({
         root: {
@@ -53,7 +54,6 @@ const style = {
 
 const TableFilling = (props) => {
     const classes = useStyles();
-
     return (
         <TableContainer className={classes.tableContainer} component={Paper}>
             <Table className={classes.table} size={"small"}>
@@ -61,7 +61,6 @@ const TableFilling = (props) => {
                     <TableRow>
                         <TableCell>Композиция</TableCell>
                         <TableCell align="right">Исполнитель</TableCell>
-                        <TableCell align="right">Продолжительность</TableCell>
                     </TableRow>
                 </TableHead>
                 <TableBody>
@@ -70,11 +69,11 @@ const TableFilling = (props) => {
                             <TableCell component="th" scope="row">
                                 {row.name}
                             </TableCell>
-                            <TableCell align="right">{row.artist}</TableCell>
-                            <TableCell align="right">{row.length}</TableCell>
+                            <TableCell align="right">{row.artistName}</TableCell>
                             <TableCell align="right">
                                 <Tooltip title={'Remove'}>
-                                    <IconButton size={"small"} aria-label="settings" onClick={''}>
+                                    <IconButton size={"small"} aria-label="settings"
+                                                onClick={() => {props.removeTrackById(row.id, props.playlistId)}}>
                                         {/*//todo: here*/}
                                         <CloseIcon/>
                                     </IconButton>
@@ -90,7 +89,6 @@ const TableFilling = (props) => {
 
 const Playlist = (props) => {
     const classes = useStyles();
-
     const exampleData = [
         {
             id: '1',
@@ -119,9 +117,12 @@ const Playlist = (props) => {
             </AppBar>
             <Paper elevation={3} className={classes.paper}>
                 <Typography className={classes.typography} variant="h6" gutterBottom>
-                    Плейлист {props.id}
+                    {props.currentPlaylist.name}
                 </Typography>
-                <TableFilling songList={exampleData}/>
+                <TableFilling songList={props.currentPlaylist.trackList}
+                              playlistId={props.currentPlaylist.id}
+                              removeTrackById={props.removeTrackById}
+                />
             </Paper>
         </div>
     )

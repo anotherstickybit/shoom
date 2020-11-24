@@ -56,7 +56,7 @@ const CardItem = (props) => {
             }
                         title={props.title}
             />
-            <NavLink to={'/playlist/' + props.id} id={props.id}>
+            <NavLink to={'/playlist/' + props.id} >
                 <CardMedia
                     className={classes.media}
                     image={props.img_URL}

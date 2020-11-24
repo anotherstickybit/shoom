@@ -18,3 +18,15 @@ export const playlistPreviewsAPI = {
         return instance.post(`playlists`, {id: 0, name: newPlaylistName})
     }
 }
+
+export const playlistAPI = {
+    getById(playlistId) {
+        return instance.get(`playlists/${playlistId}`)
+            .then(response => {
+                return response;
+            })
+    },
+    removeTrackById(trackId, playlistId) {
+        return instance.delete(`playlists/remove/${playlistId}?trackId=${trackId}`)
+    }
+}

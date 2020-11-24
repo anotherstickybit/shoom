@@ -1,4 +1,4 @@
-import {playlistPreviewsAPI} from "../../api/api"
+import {playlistAPI, playlistPreviewsAPI} from "../../api/api"
 
 const GET_ALL = 'GET_ALL';
 const GET_BY_ID= 'GET_BY_ID';
@@ -8,13 +8,11 @@ const CREATE_NEW= 'CREATE_NEW';
 
 let initialState = {
     playlistPreviews: [
-        {id: 1,
-        name: 'songs'},
-        {id: 2,
-        name: 'rock'}
+
     ],
     errorOnRemoving: false,
-    img_URL: 'https://images.macrumors.com/t/LGuWSa3kB8rIGbhA7CJm-zusWmg=/1200x1200/smart/article-new/2018/05/apple-music-note.jpg'
+    img_URL: 'https://images.macrumors.com/t/LGuWSa3kB8rIGbhA7CJm-zusWmg=/1200x1200/smart/article-new/2018/05/apple-music-note.jpg',
+    currentPlaylist: {}
 }
 
 const playlistsPreviewReducer = (state = initialState, action) => {
@@ -27,13 +25,19 @@ const playlistsPreviewReducer = (state = initialState, action) => {
         case REMOVE_BY_ID:
             return {
                 state
-            }
+            };
+        case GET_BY_ID:
+            return {
+                ...state,
+                currentPlaylist: action.currentPlaylist
+            };
         default:
             return state;
     }
 }
 
 export const setPreviews = (playlistPreviews) => ({type: GET_ALL, playlistPreviews})
+export const setCurrentPlaylist = (currentPlaylist) => ({type: GET_BY_ID, currentPlaylist})
 
 export const requestPlaylistPreviews = () => {
     return (dispatch) => {
@@ -58,6 +62,26 @@ export const addNewPlaylist = (newPlaylistName) => {
         playlistPreviewsAPI.addNewPlaylist(newPlaylistName).then(response => {
             if (response.status === 200) {
                 dispatch(requestPlaylistPreviews())
+            }
+        })
+    }
+}
+
+export const getPlaylistById = (playlistId) => {
+    return (dispatch) => {
+        playlistAPI.getById(playlistId).then(response => {
+            if (response.status === 200) {
+                dispatch(setCurrentPlaylist(response.data))
+            }
+        })
+    }
+}
+
+export const removeTrackById = (trackId, playlistId) => {
+    return (dispatch) => {
+        playlistAPI.removeTrackById(trackId, playlistId).then(response => {
+            if (response.status === 200) {
+                dispatch(getPlaylistById(playlistId))
             }
         })
     }
