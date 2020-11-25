@@ -11,3 +11,7 @@ export const getAlbumsPreviews = createSelector(getAlbumsPreviewsSelector, (play
 export const getImgURL = (state) => {
     return state.playlistPreviews.img_URL;
 }
+
+export const getCurrentPlaylist = (state) => {
+    return state.playlistPreviews.currentPlaylist;
+}

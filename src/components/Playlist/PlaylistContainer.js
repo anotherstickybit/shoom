@@ -2,8 +2,9 @@ import React from "react";
 import Playlist from "./Playlist";
 import {connect} from "react-redux";
 import {withRouter} from "react-router-dom";
-import {getPlaylistById, removeTrackById} from "../redux/PlaylistsPreviewReducer";
+import {removeTrackById, getPlaylistById} from "../redux/PlaylistsPreviewReducer";
 import {compose} from "redux";
+import {getCurrentPlaylist} from "../redux/PlaylistSelectors";
 
 class PlaylistContainer extends React.Component {
 
@@ -22,7 +23,7 @@ class PlaylistContainer extends React.Component {
 }
 
 let mapStateToProps = (state) => ({
-            currentPlaylist: state.playlistPreviews.currentPlaylist
+            currentPlaylist: getCurrentPlaylist(state)
 })
 
 

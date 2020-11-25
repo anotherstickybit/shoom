@@ -71,10 +71,11 @@ const TableFilling = (props) => {
                             </TableCell>
                             <TableCell align="right">{row.artistName}</TableCell>
                             <TableCell align="right">
-                                <Tooltip title={'Remove'}>
+                                <Tooltip title={'Удалить'}>
                                     <IconButton size={"small"} aria-label="settings"
-                                                onClick={() => {props.removeTrackById(row.id, props.playlistId)}}>
-                                        {/*//todo: here*/}
+                                                onClick={() => {
+                                                    props.removeTrackById(row.id, props.playlistId)
+                                                }}>
                                         <CloseIcon/>
                                     </IconButton>
                                 </Tooltip>
@@ -88,6 +89,7 @@ const TableFilling = (props) => {
 }
 
 const Playlist = (props) => {
+
     const classes = useStyles();
     const exampleData = [
         {
@@ -116,13 +118,17 @@ const Playlist = (props) => {
                 <Toolbar className={classes.toolBar}/>
             </AppBar>
             <Paper elevation={3} className={classes.paper}>
-                <Typography className={classes.typography} variant="h6" gutterBottom>
-                    {props.currentPlaylist.name}
-                </Typography>
-                <TableFilling songList={props.currentPlaylist.trackList}
-                              playlistId={props.currentPlaylist.id}
-                              removeTrackById={props.removeTrackById}
-                />
+                {props.currentPlaylist.name &&
+                <div>
+                    <Typography className={classes.typography} variant="h6" gutterBottom>
+                        {props.currentPlaylist.name}
+                    </Typography>
+                    <TableFilling songList={props.currentPlaylist.trackList}
+                                  playlistId={props.currentPlaylist.id}
+                                  removeTrackById={props.removeTrackById}
+                    />
+                </div>
+                }
             </Paper>
         </div>
     )

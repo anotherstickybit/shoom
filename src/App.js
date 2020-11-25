@@ -4,9 +4,8 @@ import Container from "@material-ui/core/Container";
 import style from "./App.css"
 import HeaderClass from "./components/Header/Header";
 import SimpleTabs from "./components/Navbar/Tabs";
-import {Route} from "react-router-dom";
+import {Redirect, Route} from "react-router-dom";
 import PlaylistContainer from "./components/Playlist/PlaylistContainer"
-import Artist from "./components/Artist/Artist";
 import ArtistContainer from "./components/Artist/ArtistContainer";
 
 class App extends React.Component {
@@ -18,6 +17,7 @@ class App extends React.Component {
         return (
             <div>
                 <Container style={style} maxWidth={false}>
+                    <Redirect to={'/home'} />
                     <HeaderClass/>
                     <Route path={'/home'} render={() => <SimpleTabs />} />
                     <Route path={'/playlist/:id'} render={ () => <PlaylistContainer />} />

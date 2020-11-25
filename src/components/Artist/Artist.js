@@ -105,22 +105,27 @@ const Artist = (props) => {
     ]
 
     return (
+
         <div className={classes.root}>
             <AppBar style={style} position="static">
                 <Toolbar className={classes.toolBar}/>
             </AppBar>
             <Paper elevation={3} className={classes.paper}>
-                <Typography className={classes.typography} variant="h6" gutterBottom>
-                    Artist {props.id}<br/>
-                    Albums:
-                </Typography>
-                <div className={classes.cardsArea}>
-                    <Grid container spacing={2}>
-                        {exampleArtists.map((item) => (
-                            <CardItem name={item.name} img={item.img} album={item.album}/>
-                        ))}
-                    </Grid>
+                {props.currentArtist.id &&
+                <div>
+                    <Typography className={classes.typography} variant="h6" gutterBottom>
+                        Artist {props.currentArtist.name}<br/>
+                        Albums:
+                    </Typography>
+                    <div className={classes.cardsArea}>
+                        <Grid container spacing={2}>
+                            {exampleArtists.map((item) => (
+                                <CardItem name={item.name} img={item.img} album={item.album}/>
+                            ))}
+                        </Grid>
+                    </div>
                 </div>
+                }
             </Paper>
         </div>
     )

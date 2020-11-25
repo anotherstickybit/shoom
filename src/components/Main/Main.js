@@ -56,7 +56,7 @@ const CardItem = (props) => {
             }
                         title={props.title}
             />
-            <NavLink to={'/playlist/' + props.id} >
+            <NavLink to={'/playlist/' + props.id}>
                 <CardMedia
                     className={classes.media}
                     image={props.img_URL}
@@ -85,7 +85,7 @@ const Main = (props) => {
                         </Typography>
                     </Grid>
                     <Grid item xs={10}>
-                        <AddPlaylist />
+                        <AddPlaylist/>
                     </Grid>
                 </Grid>
             </div>
@@ -102,6 +102,7 @@ const Main = (props) => {
 
                 </Grid>
             </div>
+
         </div>
 
     )

@@ -30,3 +30,24 @@ export const playlistAPI = {
         return instance.delete(`playlists/remove/${playlistId}?trackId=${trackId}`)
     }
 }
+
+export const artistsAPI = {
+    getArtistsList() {
+        return instance.get(`artists`)
+            .then(response => {
+                return response;
+            })
+    },
+    getCurrentArtist(artistId) {
+        return instance.get(`artists/${artistId}`)
+            .then(response => {
+                return response;
+            })
+    },
+    getCurrentArtistAlbums(artistId) {
+        return instance.get(`albums/artist/${artistId}`)
+            .then(response => {
+                return response;
+            })
+    }
+}

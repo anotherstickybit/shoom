@@ -12,6 +12,7 @@ import Grid from "@material-ui/core/Grid";
 import Main from "../Main/Main";
 import Genres from "../Genres/Genres";
 import MainContainer from "../Main/MainContainer";
+import ArtistsPreviewContainer from "../Artist/ArtistsPreviewContainer";
 
 function TabPanel(props) {
     const {children, value, index, ...other} = props;
@@ -113,13 +114,12 @@ export default function SimpleTabs() {
                     >
                         <Grid item>
                             <Tabs value={value} onChange={handleChange} aria-label="simple tabs example">
-                                <Tab label="Главное" {...a11yProps(0)} />
-                                <Tab label="Подкасты" {...a11yProps(1)} />
+                                <Tab label="Главное" {...a11yProps(0)}/>
+                                <Tab label="Артисты" {...a11yProps(1)} />
                                 <Tab label="Жанры" {...a11yProps(2)} />
                             </Tabs>
                         </Grid>
                         <Grid item>
-                            {/*todo: sign in maybe*/}
                         </Grid>
                     </Grid>
                 </Toolbar>
@@ -131,7 +131,7 @@ export default function SimpleTabs() {
             </TabPanel>
             <TabPanel value={value} index={1}>
                 <Paper elevation={3} className={classes.paper}>
-
+                    <ArtistsPreviewContainer />
                 </Paper>
             </TabPanel>
             <TabPanel value={value} index={2}>
