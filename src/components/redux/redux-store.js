@@ -3,11 +3,13 @@ import thunkMiddleware from "redux-thunk";
 import {reducer as formReducer} from "redux-form"
 import playlistsPreviewReducer from "./PlaylistsPreviewReducer";
 import artistsReducer from "./ArtistsReducer";
+import albumReducer from "./AlbumReducer";
 
 let reducers = combineReducers({
         form: formReducer,
         playlistPreviews: playlistsPreviewReducer,
-        artists: artistsReducer
+        artists: artistsReducer,
+        album: albumReducer
     }
 )
 

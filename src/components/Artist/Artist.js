@@ -72,10 +72,10 @@ const CardItem = (props) => {
     return (
         <Card className={classes.card}>
             <CardHeader
-                title={props.name}
-                subheader={props.album}
+                title={props.album}
+                subheader={props.name}
             />
-            <NavLink to={''}>
+            <NavLink to={'/album/' + props.albumId}>
                 <CardMedia
                     className={classes.media}
                     image={props.img}
@@ -119,8 +119,9 @@ const Artist = (props) => {
                     </Typography>
                     <div className={classes.cardsArea}>
                         <Grid container spacing={2}>
-                            {exampleArtists.map((item) => (
-                                <CardItem name={item.name} img={item.img} album={item.album}/>
+                            {props.currentArtistAlbums.map((item) => (
+                                <CardItem name={props.currentArtist.name}
+                                          img={item.imgURL} album={item.name} albumId={item.id}/>
                             ))}
                         </Grid>
                     </div>

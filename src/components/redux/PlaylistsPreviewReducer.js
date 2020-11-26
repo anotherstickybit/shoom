@@ -3,7 +3,8 @@ import {playlistAPI, playlistPreviewsAPI} from "../../api/api"
 const GET_ALL = 'GET_ALL';
 const GET_BY_ID= 'GET_BY_ID';
 const REMOVE_BY_ID= 'REMOVE_BY_ID';
-const CREATE_NEW= 'CREATE_NEW';
+const CREATE_NEW = 'CREATE_NEW';
+const ADD_TRACK = 'ADD_TRACK';
 
 
 let initialState = {
@@ -12,7 +13,8 @@ let initialState = {
     ],
     errorOnRemoving: false,
     img_URL: 'https://images.macrumors.com/t/LGuWSa3kB8rIGbhA7CJm-zusWmg=/1200x1200/smart/article-new/2018/05/apple-music-note.jpg',
-    currentPlaylist: {}
+    currentPlaylist: {},
+    trackAdded: false
 }
 
 const playlistsPreviewReducer = (state = initialState, action) => {
@@ -31,6 +33,11 @@ const playlistsPreviewReducer = (state = initialState, action) => {
                 ...state,
                 currentPlaylist: action.currentPlaylist
             };
+        case  ADD_TRACK:
+            return {
+                ...state,
+                trackAdded: action.trackAdded
+            }
         default:
             return state;
     }
@@ -38,6 +45,7 @@ const playlistsPreviewReducer = (state = initialState, action) => {
 
 export const setPreviews = (playlistPreviews) => ({type: GET_ALL, playlistPreviews})
 export const setCurrentPlaylist = (currentPlaylist) => ({type: GET_BY_ID, currentPlaylist})
+export const addTrack = (trackAdded) => ({type: ADD_TRACK, trackAdded})
 
 export const requestPlaylistPreviews = () => {
     return (dispatch) => {
@@ -82,6 +90,16 @@ export const removeTrackById = (trackId, playlistId) => {
         playlistAPI.removeTrackById(trackId, playlistId).then(response => {
             if (response.status === 200) {
                 dispatch(getPlaylistById(playlistId))
+            }
+        })
+    }
+}
+
+export const addTrackById = (playlistId, trackId) => {
+    return (dispatch) => {
+        playlistAPI.addTrack(playlistId, trackId).then(response => {
+            if (response.status === 200) {
+                dispatch(addTrack(true))
             }
         })
     }

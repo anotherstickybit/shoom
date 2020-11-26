@@ -28,6 +28,12 @@ export const playlistAPI = {
     },
     removeTrackById(trackId, playlistId) {
         return instance.delete(`playlists/remove/${playlistId}?trackId=${trackId}`)
+    },
+    addTrack(playlistId, trackId) {
+        return instance.post(`playlists/add/${playlistId}?trackId=${trackId}`)
+            .then(response => {
+                return response;
+            })
     }
 }
 
@@ -46,6 +52,15 @@ export const artistsAPI = {
     },
     getCurrentArtistAlbums(artistId) {
         return instance.get(`albums/artist/${artistId}`)
+            .then(response => {
+                return response;
+            })
+    }
+}
+
+export const albumAPI = {
+    getAlbumById(albumId) {
+        return instance.get(`albums/${albumId}`)
             .then(response => {
                 return response;
             })
