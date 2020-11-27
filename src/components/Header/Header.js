@@ -10,7 +10,10 @@ import TextField from "@material-ui/core/TextField";
 import {connect} from "react-redux";
 import {IconButton} from "@material-ui/core";
 import SearchIcon from '@material-ui/icons/Search';
-import {NavLink} from "react-router-dom";
+import {Redirect, withRouter, NavLink} from "react-router-dom";
+import {search} from "../redux/SearchReducer";
+import {compose} from "redux";
+import {getIsLoading} from "../redux/SearchSelectors";
 
 const useStyles = makeStyles((theme) => ({
     header: {
@@ -98,7 +101,8 @@ const HeaderReduxForm = reduxForm({form: 'search'})(Header)
 class HeaderClass extends React.Component {
 
     onSubmit(formData) {
-        console.log(formData);
+        this.props.search(formData.searchInput)
+        // this.props.history.push('/search')
     }
 
     render() {
@@ -110,6 +114,6 @@ class HeaderClass extends React.Component {
 
 }
 
-const mapStateToProps = (state) => ({})
+let mapStateToProps = (state) => ({})
 
-export default connect(mapStateToProps, {})(HeaderClass)
+export default compose(connect(mapStateToProps, {search}), withRouter)(HeaderClass)

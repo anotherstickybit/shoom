@@ -55,12 +55,27 @@ export const artistsAPI = {
             .then(response => {
                 return response;
             })
+    },
+    searchArtists(text) {
+        return instance.get(`artists/search/${text}`)
+            .then(response => {
+                return response;
+            })
     }
 }
 
 export const albumAPI = {
     getAlbumById(albumId) {
         return instance.get(`albums/${albumId}`)
+            .then(response => {
+                return response;
+            })
+    }
+}
+
+export const trackAPI = {
+    searchTracks(text) {
+        return instance.get(`tracks/search/${text}`)
             .then(response => {
                 return response;
             })
