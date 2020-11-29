@@ -102,7 +102,7 @@ class HeaderClass extends React.Component {
 
     onSubmit(formData) {
         this.props.search(formData.searchInput)
-        // this.props.history.push('/search')
+        this.props.history.push('/search')
     }
 
     render() {

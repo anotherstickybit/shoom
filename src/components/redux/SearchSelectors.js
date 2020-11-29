@@ -1,11 +1,11 @@
 import {createSelector} from "reselect";
 
 export const getArtistsSelector = (state) => {
-    return state.search.artists;
+    return state.searchResult.artists;
 }
 
 export const getTracksSelector = (state) => {
-    return state.search.tracks;
+    return state.searchResult.tracks;
 }
 
 export const getSearchedArtists = createSelector(getArtistsSelector, (artists) => {

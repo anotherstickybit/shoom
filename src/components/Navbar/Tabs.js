@@ -9,10 +9,9 @@ import Box from '@material-ui/core/Box';
 import Paper from "@material-ui/core/Paper";
 import Toolbar from "@material-ui/core/Toolbar";
 import Grid from "@material-ui/core/Grid";
-import Main from "../Main/Main";
 import Genres from "../Genres/Genres";
-import MainContainer from "../Main/MainContainer";
 import ArtistsPreviewContainer from "../Artist/ArtistsPreviewContainer";
+import PlaylistsPreviewsContainer from "../Main/PlaylistsPreviewsContainer";
 
 function TabPanel(props) {
     const {children, value, index, ...other} = props;
@@ -85,7 +84,6 @@ const useStyles = makeStyles((theme) => ({
     },
     resize: {
         minHeight: 15,
-
     }
 
 }));
@@ -115,7 +113,7 @@ export default function SimpleTabs() {
                         <Grid item>
                             <Tabs value={value} onChange={handleChange} aria-label="simple tabs example">
                                 <Tab label="Главное" {...a11yProps(0)}/>
-                                <Tab label="Артисты" {...a11yProps(1)} />
+                                <Tab label="Исполнители" {...a11yProps(1)} />
                                 <Tab label="Жанры" {...a11yProps(2)} />
                             </Tabs>
                         </Grid>
@@ -126,7 +124,7 @@ export default function SimpleTabs() {
             </AppBar>
             <TabPanel value={value} index={0}>
                 <Paper elevation={3} className={classes.paper}>
-                    <MainContainer />
+                    <PlaylistsPreviewsContainer />
                 </Paper>
             </TabPanel>
             <TabPanel value={value} index={1}>

@@ -5,7 +5,7 @@ import {compose} from "redux";
 import {connect} from "react-redux";
 import {requestAlbumById} from "../redux/AlbumReducer";
 import {withRouter} from "react-router-dom";
-import {getAlbumsPreviews} from "../redux/PlaylistSelectors";
+import {getAlbumsPreviews, getPlaylistsPreviewsSelector} from "../redux/PlaylistSelectors";
 import {addTrackById} from "../redux/PlaylistsPreviewReducer";
 
 class AlbumContainer extends React.Component {
@@ -25,7 +25,7 @@ class AlbumContainer extends React.Component {
 
 let mapStateToProps = (state) => ({
     currentAlbum: getCurrentAlbum(state),
-    playlists: getAlbumsPreviews(state)
+    playlists: getPlaylistsPreviewsSelector(state)
 })
 
 export default compose(connect(mapStateToProps, {requestAlbumById, addTrackById}), withRouter)(AlbumContainer)

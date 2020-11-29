@@ -29,16 +29,8 @@ const useStyles = makeStyles((theme) => ({
         width: '300px',
         height: '350'
     },
-    avatar: {
-        backgroundColor: red[500],
-    },
     media: {
-        // width: '100px',
         height: '250px'
-    },
-    addButton: {
-        marginLeft: '20px',
-        marginRight: '100px'
     }
 }))
 
@@ -67,9 +59,8 @@ const CardItem = (props) => {
     )
 }
 
-const Main = (props) => {
+const PlaylistsPreviews = (props) => {
     const classes = useStyles();
-    const elements = ['one', 'two', 'three', 'four'];
 
     return (
         <div>
@@ -98,8 +89,6 @@ const Main = (props) => {
                                       img_URL={props.img_URL}/>
                         </Grid>
                     })}
-                    {/*<CardItem title={'2343'} />*/}
-
                 </Grid>
             </div>
 
@@ -108,4 +97,4 @@ const Main = (props) => {
     )
 }
 
-export default Main;
+export default PlaylistsPreviews;

@@ -65,16 +65,16 @@ const TableFilling = (props) => {
                 </TableHead>
                 <TableBody>
                     {props.songList.map((row) => (
-                        <TableRow key={row.id}>
+                        <TableRow key={row[Object.keys(row)].id}>
                             <TableCell component="th" scope="row">
-                                {row.name}
+                                {row[Object.keys(row)].name}
                             </TableCell>
-                            <TableCell align="right">{row.artistName}</TableCell>
+                            <TableCell align="right">{row[Object.keys(row)].artistName}</TableCell>
                             <TableCell align="right">
                                 <Tooltip title={'Удалить'}>
                                     <IconButton size={"small"} aria-label="settings"
                                                 onClick={() => {
-                                                    props.removeTrackById(row.id, props.playlistId)
+                                                    props.removeTrackById(parseInt(Object.keys(row)), props.playlistId)
                                                 }}>
                                         <CloseIcon/>
                                     </IconButton>
@@ -91,26 +91,6 @@ const TableFilling = (props) => {
 const Playlist = (props) => {
 
     const classes = useStyles();
-    const exampleData = [
-        {
-            id: '1',
-            name: 'name1',
-            artist: 'artist1',
-            length: '5:00'
-        },
-        {
-            id: '2',
-            name: 'name2',
-            artist: 'artist2',
-            length: '3:00'
-        },
-        {
-            id: '3',
-            name: 'name3',
-            artist: 'artist3',
-            length: '4:00'
-        },
-    ]
 
     return (
         <div className={classes.root}>

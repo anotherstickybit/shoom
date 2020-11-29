@@ -85,9 +85,9 @@ export const getPlaylistById = (playlistId) => {
     }
 }
 
-export const removeTrackById = (trackId, playlistId) => {
+export const removeTrackById = (playlistTrackId, playlistId) => {
     return (dispatch) => {
-        playlistAPI.removeTrackById(trackId, playlistId).then(response => {
+        playlistAPI.removeTrackById(playlistTrackId).then(response => {
             if (response.status === 200) {
                 dispatch(getPlaylistById(playlistId))
             }

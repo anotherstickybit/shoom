@@ -37,15 +37,6 @@ const useStyles = makeStyles((theme) => ({
             minHeight: 36,
             width: "100%"
         },
-        table: {
-            // width: 650,
-            // marginLeft: '10px'
-        },
-        tableContainer: {
-            marginTop: '20px',
-            width: 650,
-            marginLeft: '20px'
-        },
         card: {
             marginLeft: '20px',
             width: '300px',
@@ -89,21 +80,6 @@ const CardItem = (props) => {
 const Artist = (props) => {
     const classes = useStyles();
 
-    const exampleArtists = [
-        {
-            id: 1,
-            name: 'Metallica',
-            album: 'Master of Puppets',
-            img: 'https://img.discogs.com/CRpfzSba7JxMKJ73GiOOc2cMs50=/fit-in/300x300/filters:strip_icc():format(jpeg):mode_rgb():quality(40)/discogs-images/R-8579882-1577799526-6136.jpeg.jpg'
-        },
-        {
-            id: 2,
-            name: 'Metallica',
-            album: 'Metallica',
-            img: 'https://upload.wikimedia.org/wikipedia/ru/c/c2/Metallica_Album.jpg'
-        }
-    ]
-
     return (
 
         <div className={classes.root}>
@@ -114,8 +90,8 @@ const Artist = (props) => {
                 {props.currentArtist.id &&
                 <div>
                     <Typography className={classes.typography} variant="h6" gutterBottom>
-                        Artist {props.currentArtist.name}<br/>
-                        Albums:
+                        {props.currentArtist.name}<br/>
+                        Доступные альбомы:
                     </Typography>
                     <div className={classes.cardsArea}>
                         <Grid container spacing={2}>

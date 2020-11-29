@@ -26,8 +26,8 @@ export const playlistAPI = {
                 return response;
             })
     },
-    removeTrackById(trackId, playlistId) {
-        return instance.delete(`playlists/remove/${playlistId}?trackId=${trackId}`)
+    removeTrackById(playlistTrackId) {
+        return instance.delete(`playlists/remove/${playlistTrackId}`)
     },
     addTrack(playlistId, trackId) {
         return instance.post(`playlists/add/${playlistId}?trackId=${trackId}`)

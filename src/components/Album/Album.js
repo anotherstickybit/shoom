@@ -13,6 +13,7 @@ import IconButton from "@material-ui/core/IconButton";
 import SaveIcon from '@material-ui/icons/Save';
 import Menu from "@material-ui/core/Menu";
 import MenuItem from "@material-ui/core/MenuItem";
+import {SnackbarProvider, useSnackbar} from 'notistack';
 
 const useStyles = makeStyles((theme) => ({
         root: {
@@ -54,6 +55,7 @@ const style = {
 };
 
 const MenuWithProps = (props) => {
+    const {enqueueSnackbar} = useSnackbar();
     const [anchorEl, setAnchorEl] = React.useState(null);
 
     const handleClick = (event) => {
@@ -63,6 +65,12 @@ const MenuWithProps = (props) => {
     const handleClose = () => {
         setAnchorEl(null);
     };
+
+    const handleSave = (id, rowId, variant) => {
+        props.addTrackById(id, rowId);
+        enqueueSnackbar('Track added to playlist!', {variant});
+        handleClose();
+    }
 
     const classes = useStyles();
 
@@ -82,8 +90,7 @@ const MenuWithProps = (props) => {
             >
                 {props.playlists.map((item) => (
                     <MenuItem
-                        onClick={() => props.addTrackById(item.id, props.rowId)}
-                        // onClick={() => alert(item.id + ' ' + props.rowId)}
+                        onClick={() => handleSave(item.id, props.rowId, 'success')}
                     >
                         {item.name}
                     </MenuItem>
@@ -130,24 +137,26 @@ const Album = (props) => {
     const classes = useStyles();
 
     return (
-        <div className={classes.root}>
-            <AppBar style={style} position="static">
-                <Toolbar className={classes.toolBar}/>
-            </AppBar>
-            <Paper elevation={3} className={classes.paper}>
-                {props.currentAlbum.id &&
-                <div>
-                    <AlbumCard albumId={props.currentAlbum.id}
-                               artistName={props.currentAlbum.artist.name}
-                               imgURL={props.currentAlbum.imgURL}
-                               albumName={props.currentAlbum.name}
-                    />
-                    <TableFilling songList={props.currentAlbum.trackList} playlists={props.playlists}
-                                  addTrackById={props.addTrackById}/>
-                </div>
-                }
-            </Paper>
-        </div>
+        <SnackbarProvider maxSnack={3}>
+            <div className={classes.root}>
+                <AppBar style={style} position="static">
+                    <Toolbar className={classes.toolBar}/>
+                </AppBar>
+                <Paper elevation={3} className={classes.paper}>
+                    {props.currentAlbum.id &&
+                    <div>
+                        <AlbumCard albumId={props.currentAlbum.id}
+                                   artistName={props.currentAlbum.artist.name}
+                                   imgURL={props.currentAlbum.imgURL}
+                                   albumName={props.currentAlbum.name}
+                        />
+                        <TableFilling songList={props.currentAlbum.trackList} playlists={props.playlists}
+                                      addTrackById={props.addTrackById}/>
+                    </div>
+                    }
+                </Paper>
+            </div>
+        </SnackbarProvider>
     )
 
 }

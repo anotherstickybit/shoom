@@ -1,7 +1,15 @@
 import React from "react";
 import SearchResult from "./SearchResult";
-import {getIsLoading, getSearchedArtists, getSearchedTracks} from "../redux/SearchSelectors";
+import {
+    getArtistsSelector,
+    getIsLoading,
+    getSearchedArtists,
+    getSearchedTracks,
+    getTracksSelector
+} from "../redux/SearchSelectors";
 import {connect} from "react-redux";
+import {addTrackById} from "../redux/PlaylistsPreviewReducer";
+import {getAlbumsPreviews, getPlaylistsPreviewsSelector} from "../redux/PlaylistSelectors";
 
 class SearchResultContainer extends React.Component {
 
@@ -9,18 +17,17 @@ class SearchResultContainer extends React.Component {
     }
 
     render() {
-        if (this.props.isLoading === true) {
-            return <div>Loading</div>
-        }
         return (
-            <SearchResult artists={this.props.artists} tracks={this.props.tracks}/>
+            <SearchResult artists={this.props.artists} tracks={this.props.tracks}
+                          addTrackById={this.props.addTrackById} playlists={this.props.playlists}/>
         )
     }
 }
 
 let mapStateToProps = (state) => ({
-    artists: getSearchedArtists(state),
-    tracks: getSearchedTracks(state)
+    artists: getArtistsSelector(state),
+    tracks: getTracksSelector(state),
+    playlists: getPlaylistsPreviewsSelector(state)
 })
 
-export default connect(mapStateToProps, {})(SearchResultContainer);
+export default connect(mapStateToProps, {addTrackById})(SearchResultContainer);
