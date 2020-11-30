@@ -107,7 +107,7 @@ const AddNewPlaylist = (props) => {
                         <div>
                             <Button className={classes.addButton}
                                     aria-describedby={id}
-                                    variant="contained" type={'submit'}>Сохранить</Button>
+                                    variant="contained" type={'submit'} onClick={handleClose}>Сохранить</Button>
                         </div>
                     </form>
                 </Typography>

@@ -2,7 +2,7 @@ import React from "react";
 import PlaylistsPreviews from "./PlaylistsPreviews";
 import {compose} from "redux";
 import {connect} from "react-redux";
-import {removePlaylistById, requestPlaylistPreviews} from "../redux/PlaylistsPreviewReducer";
+import {removePlaylistById, renamePlaylist, requestPlaylistPreviews} from "../redux/PlaylistsPreviewReducer";
 import {getAlbumsPreviews, getPlaylistsPreviewsSelector, getImgURL} from "../redux/PlaylistSelectors";
 
 class PlaylistsPreviewsContainer extends React.Component {
@@ -13,8 +13,10 @@ class PlaylistsPreviewsContainer extends React.Component {
 
     render() {
         return (
-            <PlaylistsPreviews {...this.props} albumPreviews={this.props.playlistPreviews} removePlaylistById={this.props.removePlaylistById}
-                               img_URL={this.props.img_URL}/>
+            <PlaylistsPreviews {...this.props} albumPreviews={this.props.playlistPreviews}
+                               removePlaylistById={this.props.removePlaylistById}
+                               img_URL={this.props.img_URL}
+                               renamePlaylist={this.props.renamePlaylist}/>
         )
     }
 }
@@ -26,4 +28,4 @@ let mapStateToProps = (state) => {
     };
 }
 
-export default connect(mapStateToProps, {removePlaylistById, requestPlaylistPreviews})(PlaylistsPreviewsContainer)
+export default connect(mapStateToProps, {removePlaylistById, requestPlaylistPreviews, renamePlaylist})(PlaylistsPreviewsContainer)

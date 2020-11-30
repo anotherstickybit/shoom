@@ -14,6 +14,7 @@ import {NavLink} from "react-router-dom";
 import {removePlaylistById} from "../redux/PlaylistsPreviewReducer";
 import AddNewPlaylist from "./AddNewPlaylist";
 import AddPlaylist from "./AddNewPlaylist";
+import PlaylistName from "./PlaylistName";
 
 const useStyles = makeStyles((theme) => ({
     typography: {
@@ -31,6 +32,10 @@ const useStyles = makeStyles((theme) => ({
     },
     media: {
         height: '250px'
+    },
+    typographyCard: {
+        marginTop: '-70px',
+        marginLeft: '10px'
     }
 }))
 
@@ -46,8 +51,16 @@ const CardItem = (props) => {
                     <CloseIcon/>
                 </IconButton>
             }
-                        title={props.title}
+                        // title={props.title}
             />
+            <CardContent>
+                {/*<Typography className={classes.typographyCard} gutterBottom variant="h5" component="h2">*/}
+                {/*    {props.title}*/}
+                {/*</Typography>*/}
+                <div className={classes.typographyCard}>
+                <PlaylistName title={props.title} id={props.id} renamePlaylist={props.renamePlaylist}/>
+                </div>
+            </CardContent>
             <NavLink to={'/playlist/' + props.id}>
                 <CardMedia
                     className={classes.media}
@@ -86,7 +99,7 @@ const PlaylistsPreviews = (props) => {
                     {props.albumPreviews.map((item) => {
                         return <Grid item>
                             <CardItem title={item.name} id={item.id} removeById={props.removePlaylistById}
-                                      img_URL={props.img_URL}/>
+                                      img_URL={props.img_URL} renamePlaylist={props.renamePlaylist}/>
                         </Grid>
                     })}
                 </Grid>

@@ -75,6 +75,16 @@ export const addNewPlaylist = (newPlaylistName) => {
     }
 }
 
+export const renamePlaylist = (newName, id) => {
+    return (dispatch) => {
+        playlistPreviewsAPI.renamePlaylist(newName, id).then(response => {
+            if (response.status === 200) {
+                dispatch(requestPlaylistPreviews())
+            }
+        })
+    }
+}
+
 export const getPlaylistById = (playlistId) => {
     return (dispatch) => {
         playlistAPI.getById(playlistId).then(response => {

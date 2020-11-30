@@ -16,6 +16,9 @@ export const playlistPreviewsAPI = {
     },
     addNewPlaylist(newPlaylistName) {
         return instance.post(`playlists`, {id: 0, name: newPlaylistName})
+    },
+    renamePlaylist(newName, id) {
+        return instance.post(`playlists`, {id: id, name: newName})
     }
 }
 
