@@ -26,7 +26,6 @@ const useStyles = makeStyles((theme) => ({
             width: 'inherit',
             minHeight: '82vh',
             height: '100%',
-            marginTop: '25px',
             marginLeft: '2px',
             marginRight: '2px',
             backgroundColor: '#e8e8e8'

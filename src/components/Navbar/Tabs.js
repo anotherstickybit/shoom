@@ -114,7 +114,6 @@ export default function SimpleTabs() {
                             <Tabs value={value} onChange={handleChange} aria-label="simple tabs example">
                                 <Tab label="Главное" {...a11yProps(0)}/>
                                 <Tab label="Исполнители" {...a11yProps(1)} />
-                                <Tab label="Жанры" {...a11yProps(2)} />
                             </Tabs>
                         </Grid>
                         <Grid item>
@@ -130,11 +129,6 @@ export default function SimpleTabs() {
             <TabPanel value={value} index={1}>
                 <Paper elevation={3} className={classes.paper}>
                     <ArtistsPreviewContainer />
-                </Paper>
-            </TabPanel>
-            <TabPanel value={value} index={2}>
-                <Paper elevation={3} className={classes.paper}>
-                    <Genres />
                 </Paper>
             </TabPanel>
         </div>

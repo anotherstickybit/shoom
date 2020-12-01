@@ -8,13 +8,11 @@ import {Redirect, Route} from "react-router-dom";
 import PlaylistContainer from "./components/Playlist/PlaylistContainer"
 import ArtistContainer from "./components/Artist/ArtistContainer";
 import AlbumContainer from "./components/Album/AlbumContainer";
-import searchResult from "./components/Search/SearchResult";
-import SearchResult from "./components/Search/SearchResult";
 import SearchResultContainer from "./components/Search/SearchResultContainer";
 
 class App extends React.Component {
     componentDidMount() {
-        document.title = 'Shoom Music Service';
+        document.title = 'Shoom Music';
     }
 
     render() {
@@ -24,12 +22,11 @@ class App extends React.Component {
                     {/*<Redirect to={'/home'} />*/}
                     <HeaderClass/>
                     <Route path={'/home'} render={() => <SimpleTabs />} />
-                    <Route path={'/playlist/:id'} render={ () => <PlaylistContainer />} />
+                    <Route path={'/playlist/:id'} render={() => <PlaylistContainer />} />
                     <Route path={'/artist/:id'} render={() => <ArtistContainer />} />
                     <Route path={'/album/:id'} render={() => <AlbumContainer />} />
                     <Route path={'/search/'} render={() => <SearchResultContainer />} />
                 </Container>
-                {/*<BackToTop/>*/}
             </div>
         );
     }

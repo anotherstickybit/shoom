@@ -3,6 +3,8 @@ import {connect} from "react-redux";
 import {requestArtists} from "../redux/ArtistsReducer";
 import ArtistsPreview from "./ArtistsPreview";
 import {getArtists, getArtistsSelector} from "../redux/ArtistSelectors";
+import {compose} from "redux";
+import {withRouter} from "react-router-dom";
 
 class ArtistsPreviewContainer extends React.Component {
 
@@ -22,4 +24,4 @@ let mapStateToProps = (state) => ({
 
 })
 
-export default connect(mapStateToProps, {requestArtists})(ArtistsPreviewContainer);
+export default compose(connect(mapStateToProps, {requestArtists}), withRouter)(ArtistsPreviewContainer);

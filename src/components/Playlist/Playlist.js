@@ -65,16 +65,16 @@ const TableFilling = (props) => {
                 </TableHead>
                 <TableBody>
                     {props.songList.map((row) => (
-                        <TableRow key={row[Object.keys(row)].id}>
+                        <TableRow key={row.id}>
                             <TableCell component="th" scope="row">
-                                {row[Object.keys(row)].name}
+                                {row.track.name}
                             </TableCell>
-                            <TableCell align="right">{row[Object.keys(row)].artistName}</TableCell>
+                            <TableCell align="right">{row.track.artistName}</TableCell>
                             <TableCell align="right">
                                 <Tooltip title={'Удалить'}>
                                     <IconButton size={"small"} aria-label="settings"
                                                 onClick={() => {
-                                                    props.removeTrackById(parseInt(Object.keys(row)), props.playlistId)
+                                                    props.removeTrackById(row.id, props.playlistId)
                                                 }}>
                                         <CloseIcon/>
                                     </IconButton>

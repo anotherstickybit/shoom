@@ -41,13 +41,13 @@ class PlaylistName extends React.Component {
                 {!this.state.editMode &&
                 <Typography onDoubleClick={this.activateEditMode}
                             gutterBottom variant="h5" component="h2">
-                    {this.props.title}
+                    {this.props.playlistName}
                 </Typography>
                 }
                 {this.state.editMode &&
                     <TextField onChange={this.onStatusChange}
                                onBlur={this.deactivateEditMode} color={"secondary"}
-                               defaultValue={this.state.playlistName}
+                               value={this.state.playlistName}
                                inputProps={{ maxLength: 15 }}
                     />
                 }

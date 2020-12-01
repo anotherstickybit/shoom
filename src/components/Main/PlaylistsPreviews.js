@@ -58,7 +58,7 @@ const CardItem = (props) => {
                 {/*    {props.title}*/}
                 {/*</Typography>*/}
                 <div className={classes.typographyCard}>
-                <PlaylistName title={props.title} id={props.id} renamePlaylist={props.renamePlaylist}/>
+                <PlaylistName playlistName={props.title} id={props.id} renamePlaylist={props.renamePlaylist}/>
                 </div>
             </CardContent>
             <NavLink to={'/playlist/' + props.id}>
