@@ -2,14 +2,11 @@ import React from "react";
 import SearchResult from "./SearchResult";
 import {
     getArtistsSelector,
-    getIsLoading,
-    getSearchedArtists,
-    getSearchedTracks,
     getTracksSelector
 } from "../redux/SearchSelectors";
 import {connect} from "react-redux";
 import {addTrackById} from "../redux/PlaylistsPreviewReducer";
-import {getAlbumsPreviews, getPlaylistsPreviewsSelector} from "../redux/PlaylistSelectors";
+import {getPlaylistsPreviewsSelector} from "../redux/PlaylistSelectors";
 
 class SearchResultContainer extends React.Component {
 

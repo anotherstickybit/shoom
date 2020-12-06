@@ -1,4 +1,4 @@
-import {albumAPI, artistsAPI} from "../../api/api";
+import {albumAPI} from "../../api/api";
 
 
 const GET_ALBUM_BY_ID = "GET_ALBUM_BY_ID";

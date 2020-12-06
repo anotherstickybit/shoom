@@ -5,13 +5,15 @@ import playlistsPreviewReducer from "./PlaylistsPreviewReducer";
 import artistsReducer from "./ArtistsReducer";
 import albumReducer from "./AlbumReducer";
 import searchReducer from "./SearchReducer";
+import playingPlaylistReducer from "./PlayingPlaylistReducer";
 
 let reducers = combineReducers({
         form: formReducer,
         playlistPreviews: playlistsPreviewReducer,
         artists: artistsReducer,
         album: albumReducer,
-        searchResult: searchReducer
+        searchResult: searchReducer,
+        nowPlaying: playingPlaylistReducer
     }
 )
 

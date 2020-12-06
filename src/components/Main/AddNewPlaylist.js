@@ -55,6 +55,8 @@ const renderTextField = ({
     />
 )
 
+const required = value => value ? undefined : ' '
+
 const AddNewPlaylist = (props) => {
     const theme = createMuiTheme({
         palette: {
@@ -101,6 +103,7 @@ const AddNewPlaylist = (props) => {
                         <div>
                             <ThemeProvider theme={theme}>
                                 <Field name="playlistName" component={renderTextField} label="Имя плейлиста"
+                                       validate={required}
                                        className={classes.textField}/>
                             </ThemeProvider>
                         </div>
@@ -131,8 +134,4 @@ class AddPlaylist extends React.Component {
     }
 }
 
-const mapStateToProps = (state) => {
-
-}
-
-export default connect(mapStateToProps, {addNewPlaylist})(AddPlaylist)
+export default connect(null, {addNewPlaylist})(AddPlaylist)

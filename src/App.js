@@ -19,7 +19,7 @@ class App extends React.Component {
         return (
             <div>
                 <Container style={style} maxWidth={false}>
-                    {/*<Redirect to={'/home'} />*/}
+                    <Redirect to={'/home'} />
                     <HeaderClass/>
                     <Route path={'/home'} render={() => <SimpleTabs />} />
                     <Route path={'/playlist/:id'} render={() => <PlaylistContainer />} />

@@ -5,7 +5,7 @@ import {compose} from "redux";
 import {connect} from "react-redux";
 import {requestAlbumById} from "../redux/AlbumReducer";
 import {withRouter} from "react-router-dom";
-import {getAlbumsPreviews, getPlaylistsPreviewsSelector} from "../redux/PlaylistSelectors";
+import {getPlaylistsPreviewsSelector} from "../redux/PlaylistSelectors";
 import {addTrackById} from "../redux/PlaylistsPreviewReducer";
 
 class AlbumContainer extends React.Component {

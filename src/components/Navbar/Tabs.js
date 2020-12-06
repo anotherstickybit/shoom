@@ -9,7 +9,6 @@ import Box from '@material-ui/core/Box';
 import Paper from "@material-ui/core/Paper";
 import Toolbar from "@material-ui/core/Toolbar";
 import Grid from "@material-ui/core/Grid";
-import Genres from "../Genres/Genres";
 import ArtistsPreviewContainer from "../Artist/ArtistsPreviewContainer";
 import PlaylistsPreviewsContainer from "../Main/PlaylistsPreviewsContainer";
 

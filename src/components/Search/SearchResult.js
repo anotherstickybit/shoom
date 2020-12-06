@@ -66,9 +66,9 @@ const MenuWithProps = (props) => {
         setAnchorEl(null);
     };
 
-    const handleSave = (id, rowId, variant) => {
+    const handleSave = (id, rowId, plName, variant) => {
         props.addTrackById(id, rowId);
-        enqueueSnackbar('Track added to playlist!', {variant});
+        enqueueSnackbar('Композиция добавлена в плейлист ' + plName, {variant});
         handleClose();
     }
 
@@ -90,7 +90,7 @@ const MenuWithProps = (props) => {
             >
                 {props.playlists.map((item) => (
                     <MenuItem
-                        onClick={() => handleSave(item.id, props.rowId, 'success')}
+                        onClick={() => handleSave(item.id, props.rowId, item.name, 'success')}
                     >
                         {item.name}
                     </MenuItem>

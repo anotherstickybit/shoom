@@ -8,7 +8,6 @@ import AlbumCard from "./AlbumCard";
 import Table from "@material-ui/core/Table";
 import TableRow from "@material-ui/core/TableRow";
 import TableCell from "@material-ui/core/TableCell";
-import Tooltip from "@material-ui/core/Tooltip";
 import IconButton from "@material-ui/core/IconButton";
 import SaveIcon from '@material-ui/icons/Save';
 import Menu from "@material-ui/core/Menu";
@@ -66,9 +65,9 @@ const MenuWithProps = (props) => {
         setAnchorEl(null);
     };
 
-    const handleSave = (id, rowId, variant) => {
+    const handleSave = (id, rowId, plName, variant) => {
         props.addTrackById(id, rowId);
-        enqueueSnackbar('Track added to playlist!', {variant});
+        enqueueSnackbar('Композиция добавлена в плейлист ' + plName, {variant});
         handleClose();
     }
 
@@ -90,7 +89,7 @@ const MenuWithProps = (props) => {
             >
                 {props.playlists.map((item) => (
                     <MenuItem
-                        onClick={() => handleSave(item.id, props.rowId, 'success')}
+                        onClick={() => handleSave(item.id, props.rowId, item.name, 'success')}
                     >
                         {item.name}
                     </MenuItem>
@@ -103,7 +102,6 @@ const MenuWithProps = (props) => {
 
 const TableFilling = (props) => {
     const classes = useStyles();
-
 
     return (
         <div>

@@ -1,18 +1,13 @@
 import React from "react";
-import {Button, CardHeader, Typography} from "@material-ui/core";
+import {CardHeader, Typography} from "@material-ui/core";
 import makeStyles from "@material-ui/core/styles/makeStyles";
 import Card from "@material-ui/core/Card";
-import red from "@material-ui/core/colors/red";
-import Avatar from "@material-ui/core/Avatar";
 import IconButton from "@material-ui/core/IconButton";
 import CardMedia from "@material-ui/core/CardMedia";
 import CardContent from "@material-ui/core/CardContent";
 import CloseIcon from '@material-ui/icons/Close';
 import Grid from "@material-ui/core/Grid";
-import ButtonBase from "@material-ui/core/ButtonBase";
 import {NavLink} from "react-router-dom";
-import {removePlaylistById} from "../redux/PlaylistsPreviewReducer";
-import AddNewPlaylist from "./AddNewPlaylist";
 import AddPlaylist from "./AddNewPlaylist";
 import PlaylistName from "./PlaylistName";
 
@@ -51,12 +46,9 @@ const CardItem = (props) => {
                     <CloseIcon/>
                 </IconButton>
             }
-                        // title={props.title}
+
             />
             <CardContent>
-                {/*<Typography className={classes.typographyCard} gutterBottom variant="h5" component="h2">*/}
-                {/*    {props.title}*/}
-                {/*</Typography>*/}
                 <div className={classes.typographyCard}>
                 <PlaylistName playlistName={props.title} id={props.id} renamePlaylist={props.renamePlaylist}/>
                 </div>
@@ -104,7 +96,6 @@ const PlaylistsPreviews = (props) => {
                     })}
                 </Grid>
             </div>
-
         </div>
 
     )

@@ -1,9 +1,8 @@
 import React from "react";
 import PlaylistsPreviews from "./PlaylistsPreviews";
-import {compose} from "redux";
 import {connect} from "react-redux";
 import {removePlaylistById, renamePlaylist, requestPlaylistPreviews} from "../redux/PlaylistsPreviewReducer";
-import {getAlbumsPreviews, getPlaylistsPreviewsSelector, getImgURL} from "../redux/PlaylistSelectors";
+import {getPlaylistsPreviewsSelector, getImgURL} from "../redux/PlaylistSelectors";
 
 class PlaylistsPreviewsContainer extends React.Component {
 

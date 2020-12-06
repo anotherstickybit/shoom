@@ -1,15 +1,10 @@
 import React from "react";
 import makeStyles from "@material-ui/core/styles/makeStyles";
-import AppBar from "@material-ui/core/AppBar";
-import Toolbar from "@material-ui/core/Toolbar";
 import Paper from "@material-ui/core/Paper";
 import {TableBody, TableContainer, TableHead, Typography} from "@material-ui/core";
 import Table from "@material-ui/core/Table";
 import TableRow from "@material-ui/core/TableRow";
 import TableCell from "@material-ui/core/TableCell";
-import Tooltip from "@material-ui/core/Tooltip";
-import IconButton from "@material-ui/core/IconButton";
-import CloseIcon from "@material-ui/icons/Close";
 import {NavLink} from "react-router-dom";
 
 const useStyles = makeStyles((theme) => ({

@@ -10,7 +10,6 @@ import TableCell from "@material-ui/core/TableCell";
 import CloseIcon from "@material-ui/icons/Close";
 import IconButton from "@material-ui/core/IconButton";
 import Tooltip from '@material-ui/core/Tooltip';
-import {removeTrackById} from "../redux/PlaylistsPreviewReducer";
 
 const useStyles = makeStyles((theme) => ({
         root: {

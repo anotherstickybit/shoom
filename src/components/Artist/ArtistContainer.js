@@ -6,7 +6,6 @@ import {requestCurrentArtist, requestCurrentArtistAlbumPreviews} from "../redux/
 import {withRouter} from "react-router-dom";
 import {getCurrentArtist, getCurrentArtistAlbums} from "../redux/ArtistSelectors";
 
-
 class ArtistContainer extends React.Component {
 
     componentDidMount() {

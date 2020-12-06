@@ -5,14 +5,9 @@ import Paper from "@material-ui/core/Paper";
 import {CardHeader, Typography} from "@material-ui/core";
 import React from "react";
 import Card from "@material-ui/core/Card";
-import Avatar from "@material-ui/core/Avatar";
-import IconButton from "@material-ui/core/IconButton";
-import CloseIcon from "@material-ui/icons/Close";
 import {NavLink} from "react-router-dom";
 import CardMedia from "@material-ui/core/CardMedia";
-import CardContent from "@material-ui/core/CardContent";
 import Grid from "@material-ui/core/Grid";
-
 
 const useStyles = makeStyles((theme) => ({
         root: {

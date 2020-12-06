@@ -10,10 +10,11 @@ import TextField from "@material-ui/core/TextField";
 import {connect} from "react-redux";
 import {IconButton} from "@material-ui/core";
 import SearchIcon from '@material-ui/icons/Search';
-import {Redirect, withRouter, NavLink} from "react-router-dom";
+import {withRouter, NavLink} from "react-router-dom";
 import {search} from "../redux/SearchReducer";
 import {compose} from "redux";
-import {getIsLoading} from "../redux/SearchSelectors";
+import PlayingControls from "./PlayingControls";
+import PlayingControlsContainer from "./PlayingControlsContainer";
 
 const useStyles = makeStyles((theme) => ({
     header: {
@@ -35,6 +36,12 @@ const useStyles = makeStyles((theme) => ({
     searchButton: {
         marginLeft: '-35px',
         marginTop: '-65px',
+    },
+    playingControls: {
+        position: 'absolute',
+        right: '0',
+        marginRight: '150px'
+
     }
 }));
 
@@ -65,6 +72,8 @@ const renderTextField = ({
 
 )
 
+const required = value => value ? undefined : ' '
+
 const Header = (props) => {
 
     const theme = createMuiTheme({
@@ -84,7 +93,7 @@ const Header = (props) => {
             </NavLink>
             <form onSubmit={props.handleSubmit}>
                 <ThemeProvider theme={theme}>
-                    <Field name="searchInput" component={renderTextField} label={'Поиск'}
+                    <Field name="searchInput" component={renderTextField} label={'Поиск'} validate={required}
                            className={classes.textField} placeholder={'Укажи имя исполнителя или название трека'}
                     />
                     <IconButton className={classes.searchButton} size={'small'} type={"submit"} color={"secondary"}>
@@ -92,6 +101,9 @@ const Header = (props) => {
                     </IconButton>
                 </ThemeProvider>
             </form>
+            <div className={classes.playingControls}>
+                <PlayingControlsContainer />
+            </div>
         </AppBar>
     );
 }

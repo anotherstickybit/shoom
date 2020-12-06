@@ -3,7 +3,6 @@ import {playlistAPI, playlistPreviewsAPI} from "../../api/api"
 const GET_ALL = 'GET_ALL';
 const GET_BY_ID= 'GET_BY_ID';
 const REMOVE_BY_ID= 'REMOVE_BY_ID';
-const CREATE_NEW = 'CREATE_NEW';
 const ADD_TRACK = 'ADD_TRACK';
 
 
