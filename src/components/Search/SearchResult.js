@@ -111,6 +111,7 @@ const TracksTable = (props) => {
                     <TableHead>
                         <TableRow>
                             <TableCell>Композиция</TableCell>
+                            <TableCell>Исполнитель</TableCell>
                         </TableRow>
                     </TableHead>
                     <TableBody>
@@ -119,6 +120,7 @@ const TracksTable = (props) => {
                                 <TableCell component="th" scope="row">
                                     {row.name}
                                 </TableCell>
+                                <TableCell>{row.artistName}</TableCell>
                                 <TableCell align="right">
                                     <MenuWithProps playlists={props.playlists}
                                                    rowId={row.id} addTrackById={props.addTrackById}/>

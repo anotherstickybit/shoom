@@ -17,12 +17,8 @@ const useStyles = makeStyles((theme) => ({
             marginLeft: '40px',
             marginTop: '20px',
         },
-        paper: {
-            width: 'inherit',
-            minHeight: '82vh',
-            height: '100%',
-            marginLeft: '2px',
-            marginRight: '2px',
+        content: {
+
             backgroundColor: '#e8e8e8'
         },
         toolBar: {
@@ -71,9 +67,8 @@ const ArtistsPreview = (props) => {
     const classes = useStyles();
     return (
         <div className={classes.root}>
-            <Paper elevation={3} className={classes.paper}>
-                {!props.artistsList.length == 0 &&
-                <div>
+                {props.artistsList.length > 0 &&
+                <div className={classes.content}>
                     <Typography className={classes.typography} variant={"h6"} gutterBottom>
                         Исполнители:
                     </Typography>
@@ -82,7 +77,6 @@ const ArtistsPreview = (props) => {
                     </div>
                 </div>
                 }
-            </Paper>
         </div>
     )
 }

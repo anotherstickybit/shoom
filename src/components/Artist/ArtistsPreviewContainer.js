@@ -2,7 +2,7 @@ import React from "react";
 import {connect} from "react-redux";
 import {requestArtists} from "../redux/ArtistsReducer";
 import ArtistsPreview from "./ArtistsPreview";
-import {getArtistsSelector} from "../redux/ArtistSelectors";
+import {getArtistsSelector} from "../../selectors/ArtistSelectors";
 import {compose} from "redux";
 import {withRouter} from "react-router-dom";
 

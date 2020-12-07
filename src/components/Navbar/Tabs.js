@@ -62,29 +62,10 @@ const useStyles = makeStyles((theme) => ({
         marginRight: '-22px',
         backgroundColor: '#e8e8e8'
     },
-    loginButton: {
-        display: 'inline-block',
-        marginTop: '9px',
-        width: 90,
-        height: 30,
-        float: 'right',
-        backgroundColor: '#2E3B55',
-        '&:hover': {
-            backgroundColor: '#475c85'
-        },
-    },
     toolBar: {
         minHeight: 36,
         width: "100%"
-    },
-    userNameTextField: {
-        height: 15,
-        width: 170
-    },
-    resize: {
-        minHeight: 15,
     }
-
 }));
 const style = {
     flexGrow: 1,
@@ -102,7 +83,7 @@ export default function SimpleTabs() {
 
     return (
         <div className={classes.root}>
-            <AppBar style={style} position="static">
+            <AppBar style={style} position="static" elevation={3}>
                 <Toolbar className={classes.toolBar}>
                     <Grid
                         justify="space-between"

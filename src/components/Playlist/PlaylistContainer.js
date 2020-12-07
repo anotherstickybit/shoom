@@ -4,7 +4,7 @@ import {connect} from "react-redux";
 import {withRouter} from "react-router-dom";
 import {removeTrackById, getPlaylistById} from "../redux/PlaylistsPreviewReducer";
 import {compose} from "redux";
-import {getCurrentPlaylist} from "../redux/PlaylistSelectors";
+import {getCurrentPlaylist} from "../../selectors/PlaylistSelectors";
 
 class PlaylistContainer extends React.Component {
 

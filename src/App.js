@@ -18,7 +18,7 @@ class App extends React.Component {
     render() {
         return (
             <div>
-                <Container style={style} maxWidth={false}>
+                <Container maxWidth={false}>
                     <Redirect to={'/home'} />
                     <HeaderClass/>
                     <Route path={'/home'} render={() => <SimpleTabs />} />

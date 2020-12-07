@@ -102,7 +102,7 @@ const Header = (props) => {
                 </ThemeProvider>
             </form>
             <div className={classes.playingControls}>
-                <PlayingControlsContainer />
+                {/*<PlayingControlsContainer />*/}
             </div>
         </AppBar>
     );

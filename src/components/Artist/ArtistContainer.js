@@ -4,7 +4,7 @@ import {compose} from "redux";
 import {connect} from "react-redux";
 import {requestCurrentArtist, requestCurrentArtistAlbumPreviews} from "../redux/ArtistsReducer";
 import {withRouter} from "react-router-dom";
-import {getCurrentArtist, getCurrentArtistAlbums} from "../redux/ArtistSelectors";
+import {getCurrentArtist, getCurrentArtistAlbums} from "../../selectors/ArtistSelectors";
 
 class ArtistContainer extends React.Component {
 

@@ -6,7 +6,7 @@ import {
 } from "../redux/SearchSelectors";
 import {connect} from "react-redux";
 import {addTrackById} from "../redux/PlaylistsPreviewReducer";
-import {getPlaylistsPreviewsSelector} from "../redux/PlaylistSelectors";
+import {getPlaylistsPreviewsSelector} from "../../selectors/PlaylistSelectors";
 
 class SearchResultContainer extends React.Component {
 
