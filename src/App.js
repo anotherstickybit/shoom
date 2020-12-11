@@ -1,7 +1,6 @@
 import React from 'react';
 import './App.css';
 import Container from "@material-ui/core/Container";
-import style from "./App.css"
 import HeaderClass from "./components/Header/Header";
 import SimpleTabs from "./components/Navbar/Tabs";
 import {Redirect, Route} from "react-router-dom";
